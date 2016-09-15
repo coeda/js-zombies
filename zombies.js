@@ -121,6 +121,7 @@ function Player (name, health, strength, speed){
 
 Player.prototype.checkPack = function(){
   console.log(this._pack.join(''));
+
 };
 
 /**
@@ -208,10 +209,20 @@ Player.prototype.discardItem = function(item){
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
 Player.prototype.equip = function(itemToEquip){
-  if(this.equipped === true){
-
+  if(itemToEquip instanceof Weapon){
+    for(i = 0; i < this._pack.length; i++){
+      if(this._pack[i] === itemToEquip){
+        if(this.equipped !== false){
+          this.takeItem(this.equipped);
+          this.equipped = itemToEquip;
+        } else {
+          this.equipped = itemToEquip;
+        }
+        this.discardItem(itemToEquip);
+      }
+    }
   } else {
-    this.equipped = true;
+    return false;
   }
 };
 
