@@ -178,7 +178,15 @@ Player.prototype.takeItem = function(item){
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
 
-
+Player.prototype.discardItem = function(item){
+  for(let i = 0; i < this._pack.length; i++){
+    if(this._pack[i] === item){
+      this._pack.splice(i,1);
+      console.log('Item was removed');
+      return true;
+    }
+  }
+};
 
 /**
  * Player Class Method => equip(itemToEquip)
