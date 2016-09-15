@@ -119,6 +119,9 @@ function Player (name, health, strength, speed){
  * @name checkPack
  */
 
+Player.prototype.checkPack = function(){
+  console.log(this._pack.join(''));
+};
 
 /**
  * Player Class Method => takeItem(item)
@@ -174,6 +177,7 @@ Player.prototype.takeItem = function(item){
  * @param {Item/Weapon/Food} item   The item to discard.
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
+
 
 
 /**
