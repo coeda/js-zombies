@@ -245,6 +245,19 @@ Player.prototype.equip = function(itemToEquip){
  * @param {Food} itemToEat  The food item to eat.
  */
 
+Player.prototype.eat = function(itemToEat){
+  if(itemToEat instanceof Food){
+    for(i = 0; i < this._pack.length; i++){
+      if(this._pack[i] === itemToEat){
+        this.health += itemToEat.energy;
+        if(this.health > this._maxHealth){
+          this.health = this._maxHealth;
+        }
+        this.discardItem(itemToEat);
+      }
+    }
+  }
+};
 
 /**
  * Player Class Method => useItem(item)
