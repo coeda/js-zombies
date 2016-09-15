@@ -98,10 +98,10 @@ function Player (name, health, strength, speed){
   this._maxHealth = health;
   this.isAlive = true;
   this.equipped = false;
-  this.getPack = this._pack;
+  this.getPack = function(){
+    return this._pack;
+  };
   this.getMaxHealth = this._maxHealth;
-
-
 
 }
 
