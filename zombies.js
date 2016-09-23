@@ -120,7 +120,7 @@ function Player (name, health, strength, speed){
  */
 
 Player.prototype.checkPack = function(){
-  console.log(this._pack.join(''));
+  console.log(this.getPack().join(''));
 
 };
 
